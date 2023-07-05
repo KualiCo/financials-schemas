@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+    The Kuali Financial System, a comprehensive financial management system for higher education.
+
+    Copyright 2005-2023 Kuali, Inc.
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Affero General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Affero General Public License for more details.
+
+    You should have received a copy of the GNU Affero General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="https://github.com/KualiCo/financials-schemas/tree/main/organizationLoad/v1"
+           xmlns="https://github.com/KualiCo/financials-schemas/tree/main/organizationLoad/v1"
+           elementFormDefault="qualified">
+    <xs:element name="organizationLoad">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element maxOccurs="unbounded"
+                            name="organization"
+                            type="Organization"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:complexType name="Organization">
+        <xs:all>
+            <xs:element name="chartOfAccountsCode"
+                        type="TwoLetterString"/>
+            <xs:element name="organizationCode"
+                        type="FourCharacterMaxString"/>
+            <xs:element name="organizationManagerUniversalId"
+                        type="FortyCharacterMaxString"/>
+            <xs:element name="organizationName"
+                        type="FortyCharacterMaxString"/>
+            <xs:element name="responsibilityCenterCode"
+                        type="TwoLetterString"/>
+            <xs:element name="organizationPhysicalCampusCode"
+                        type="TwoLetterString"/>
+            <xs:element minOccurs="0"
+                        name="organizationDefaultAccountNumber"
+                        type="SevenCharacterMaxString"/>
+            <xs:element name="organizationTypeCode"
+                        type="OneLetterString"/>
+            <xs:element name="organizationLine1Address"
+                        type="ThirtyCharacterMaxString"/>
+            <xs:element minOccurs="0"
+                        name="organizationLine2Address"
+                        type="ThirtyCharacterMaxString"/>
+            <xs:element name="organizationCityName"
+                        type="TwentyFiveCharacterMaxString"/>
+            <xs:element name="organizationStateCode"
+                        type="TwoLetterString"/>
+            <xs:element name="organizationZipCode"
+                        type="TwentyCharacterMaxString"/>
+            <xs:element name="organizationCountryCode"
+                        type="TwoLetterString"/>
+            <xs:element minOccurs="0"
+                        name="organizationBeginDate"
+                        type="xs:date"/>
+            <xs:element minOccurs="0"
+                        name="organizationEndDate"
+                        type="xs:date"/>
+            <xs:element name="reportsToChartOfAccountsCode"
+                        type="TwoLetterString"/>
+            <xs:element name="reportsToOrganizationCode"
+                        type="FourCharacterMaxString"/>
+            <xs:element default="Y"
+                        name="active"
+                        type="YNString"/>
+            <xs:element name="organizationInFinancialProcessingIndicator"
+                        type="YNString"/>
+            <xs:element minOccurs="0"
+                        name="organizationPlantAccountNumber"
+                        type="SevenCharacterMaxString"/>
+            <xs:element minOccurs="0"
+                        name="campusPlantAccountNumber"
+                        type="SevenCharacterMaxString"/>
+            <xs:element minOccurs="0"
+                        name="organizationPlantChartCode"
+                        type="TwoLetterString"/>
+            <xs:element minOccurs="0"
+                        name="campusPlantChartCode"
+                        type="TwoLetterString"/>
+        </xs:all>
+    </xs:complexType>
+    <xs:simpleType name="YNString">
+        <xs:restriction base="xs:normalizedString">
+            <xs:maxLength value="1"/>
+            <xs:minLength value="1"/>
+            <xs:pattern value="[YN]"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="OneLetterString">
+        <xs:restriction base="xs:normalizedString">
+            <xs:maxLength value="1"/>
+            <xs:minLength value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="TwoLetterString">
+        <xs:restriction base="xs:normalizedString">
+            <xs:maxLength value="2"/>
+            <xs:minLength value="2"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="FourCharacterMaxString">
+        <xs:restriction base="xs:normalizedString">
+            <xs:maxLength value="4"/>
+            <xs:minLength value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="SevenCharacterMaxString">
+        <xs:restriction base="xs:normalizedString">
+            <xs:maxLength value="7"/>
+            <xs:minLength value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="TwentyCharacterMaxString">
+        <xs:restriction base="xs:normalizedString">
+            <xs:maxLength value="20"/>
+            <xs:minLength value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="TwentyFiveCharacterMaxString">
+        <xs:restriction base="xs:normalizedString">
+            <xs:maxLength value="25"/>
+            <xs:minLength value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="ThirtyCharacterMaxString">
+        <xs:restriction base="xs:normalizedString">
+            <xs:maxLength value="30"/>
+            <xs:minLength value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="FortyCharacterMaxString">
+        <xs:restriction base="xs:normalizedString">
+            <xs:maxLength value="40"/>
+            <xs:minLength value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>
