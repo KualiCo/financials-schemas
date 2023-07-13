@@ -20,8 +20,8 @@
 
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-           targetNamespace="https://github.com/KualiCo/financials-schemas/tree/FINUCONN-50_add-schema/organizationLoad/v1"
-           xmlns="https://github.com/KualiCo/financials-schemas/tree/FINUCONN-50_add-schema/organizationLoad/v1"
+           targetNamespace="https://github.com/KualiCo/financials-schemas/tree/main/organizationLoad/v1"
+           xmlns="https://github.com/KualiCo/financials-schemas/tree/main/organizationLoad/v1"
            elementFormDefault="qualified">
     <xs:element name="organizationLoad">
         <xs:complexType>
