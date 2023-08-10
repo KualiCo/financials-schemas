@@ -77,8 +77,6 @@
             <xs:element default="Y"
                         name="active"
                         type="YNString"/>
-            <xs:element name="organizationInFinancialProcessingIndicator"
-                        type="YNString"/>
             <xs:element minOccurs="0"
                         name="organizationPlantAccountNumber"
                         type="SevenCharacterMaxString"/>
