@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+     The Kuali Financial System, a comprehensive financial management system for higher education.
+
+     Copyright 2005-2023 Kuali, Inc.
+
+     This program is free software: you can redistribute it and/or modify
+     it under the terms of the GNU Affero General Public License as published by
+     the Free Software Foundation, either version 3 of the License, or
+     (at your option) any later version.
+
+     This program is distributed in the hope that it will be useful,
+     but WITHOUT ANY WARRANTY; without even the implied warranty of
+     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+     GNU Affero General Public License for more details.
+
+     You should have received a copy of the GNU Affero General Public License
+     along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="https://github.com/KualiCo/financials-schemas/tree/main/PayeeACHAccountLoad/v1"
+           xmlns="https://github.com/KualiCo/financials-schemas/tree/main/PayeeACHAccountLoad/v1"
+           elementFormDefault="qualified">
+    <xs:element name="PayeeACHAccountLoad">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element maxOccurs="unbounded"
+                            name="payeeACHAccount"
+                            type="PayeeACHAccount"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:complexType name="PayeeACHAccount">
+        <xs:all>
+            <xs:element name="bankRoutingNumber"
+                        type="NineNumberString"/>
+            <xs:element name="bankAccountNumber"
+                        type="TwentyFiveAlphaNumericPeriodMaxString"/>
+            <xs:element name="payeeName"
+                        type="FortyFiveCharacterMaxString"/>
+            <xs:element name="payeeEmailAddress"
+                        type="TwoHundredCharacterMaxStringEmailAddress"/>
+            <xs:element name="payeeIdNumber"
+                        type="TwentyOneCharacterMaxString"/>
+            <xs:element name="payeeIdentifierTypeCode"
+                        type="OneCharacterString"/>
+            <xs:element name="achTransactionType"
+                        type="FourCharacterMaxString"/>
+            <xs:element name="bankAccountTypeCode"
+                        type="AccountTypeCodeString"/>
+            <xs:element name="standardEntryClass"
+                        type="ThreeCharacterMaxString"/>
+            <xs:element name="active"
+                        type="YNString"/>
+            <xs:element name="autoInactivationIndicator"
+                        type="YNString"/>
+            <xs:element name="bypassFeedUpdateIndicator"
+                        type="YNString"/>
+        </xs:all>
+    </xs:complexType>
+    <xs:simpleType name="YNString">
+        <xs:restriction base="xs:normalizedString">
+            <xs:maxLength value="1"/>
+            <xs:minLength value="1"/>
+            <xs:pattern value="[YN]"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="OneCharacterString">
+        <xs:restriction base="xs:normalizedString">
+            <xs:maxLength value="1"/>
+            <xs:minLength value="1"/>
+            <xs:pattern value="[a-zA-Z0-9]{1}"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="TwoCharacterString">
+        <xs:restriction base="xs:normalizedString">
+            <xs:maxLength value="2"/>
+            <xs:minLength value="2"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="AccountTypeCodeString">
+        <xs:restriction base="xs:normalizedString">
+            <xs:maxLength value="2"/>
+            <xs:minLength value="2"/>
+            <xs:pattern value="[23]{2}"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="ThreeCharacterMaxString">
+        <xs:restriction base="xs:normalizedString">
+            <xs:maxLength value="3"/>
+            <xs:minLength value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="FourCharacterMaxString">
+        <xs:restriction base="xs:normalizedString">
+            <xs:maxLength value="4"/>
+            <xs:minLength value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="NineNumberString">
+        <xs:restriction base="xs:normalizedString">
+            <xs:maxLength value="9"/>
+            <xs:minLength value="9"/>
+            <xs:pattern value="[0-9]{9}"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="TwentyOneCharacterMaxString">
+        <xs:restriction base="xs:normalizedString">
+            <xs:maxLength value="21"/>
+            <xs:minLength value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="TwentyFiveAlphaNumericPeriodMaxString">
+        <xs:restriction base="xs:normalizedString">
+            <xs:maxLength value="25"/>
+            <xs:minLength value="1"/>
+            <xs:pattern value="[a-zA-Z0-9.]{1,25}"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="FortyCharacterMaxString">
+        <xs:restriction base="xs:normalizedString">
+            <xs:maxLength value="40"/>
+            <xs:minLength value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="FortyFiveCharacterMaxString">
+        <xs:restriction base="xs:normalizedString">
+            <xs:maxLength value="45"/>
+            <xs:minLength value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="TwoHundredCharacterMaxStringEmailAddress">
+        <xs:restriction base="xs:normalizedString">
+            <xs:pattern value="([0-9a-zA-Z]([-.\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\w]*[0-9a-zA-Z]\.)+[a-zA-Z]{2,9})"/>
+            <xs:maxLength value="200"/>
+            <xs:minLength value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>
