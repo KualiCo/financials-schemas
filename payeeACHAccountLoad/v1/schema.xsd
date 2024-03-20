@@ -3,7 +3,7 @@
 
      The Kuali Financial System, a comprehensive financial management system for higher education.
 
-     Copyright 2005-2023 Kuali, Inc.
+     Copyright 2005-2024 Kuali, Inc.
 
      This program is free software: you can redistribute it and/or modify
      it under the terms of the GNU Affero General Public License as published by
@@ -133,7 +133,7 @@
     </xs:simpleType>
     <xs:simpleType name="TwoHundredCharacterMaxStringEmailAddress">
         <xs:restriction base="xs:normalizedString">
-            <xs:pattern value="([0-9a-zA-Z]([-.\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\w]*[0-9a-zA-Z]\.)+[a-zA-Z]{2,9})"/>
+            <xs:pattern value="[a-zA-Z0-9._%+'-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,9}"/>
             <xs:maxLength value="200"/>
             <xs:minLength value="1"/>
         </xs:restriction>
