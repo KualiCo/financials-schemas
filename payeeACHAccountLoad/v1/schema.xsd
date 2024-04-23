@@ -39,7 +39,7 @@
             <xs:element name="bankAccountNumber"
                         type="TwentyFiveAlphaNumericPeriodMaxString"/>
             <xs:element name="payeeName"
-                        type="FortyFiveCharacterMaxString"/>
+                        type="OneHundredTwentyThreeCharacterMaxString"/>
             <xs:element name="payeeEmailAddress"
                         type="TwoHundredCharacterMaxStringEmailAddress"/>
             <xs:element name="payeeIdNumber"
@@ -125,9 +125,9 @@
             <xs:minLength value="1"/>
         </xs:restriction>
     </xs:simpleType>
-    <xs:simpleType name="FortyFiveCharacterMaxString">
+    <xs:simpleType name="OneHundredTwentyThreeCharacterMaxString">
         <xs:restriction base="xs:normalizedString">
-            <xs:maxLength value="45"/>
+            <xs:maxLength value="123"/>
             <xs:minLength value="1"/>
         </xs:restriction>
     </xs:simpleType>
