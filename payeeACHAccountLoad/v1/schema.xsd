@@ -54,9 +54,12 @@
                         type="ThreeCharacterMaxString"/>
             <xs:element name="active"
                         type="YNString"/>
-            <xs:element name="autoInactivationIndicator"
-                        type="YNString"/>
-            <xs:element name="bypassFeedUpdateIndicator"
+            <!-- 
+                This flag will only be set during the first time the record is loaded.
+                On subsequent loads, the flag set in the application will be the one that determines if the record is updated.
+            -->
+            <xs:element minOccurs="0"
+                        name="bypassFeedUpdateIndicator"
                         type="YNString"/>
         </xs:all>
     </xs:complexType>
